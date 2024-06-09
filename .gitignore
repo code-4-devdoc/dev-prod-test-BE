@@ -1,0 +1,26 @@
+# Editor directories and files
+.idea
+.vscode/
+*.iws
+*.iml
+*.ipr
+out/
+HELP.md
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Dependency directories
+.gradle
+
+# Build directories and files
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+!**/src/main/**/build/
+!**/src/test/**/build/
