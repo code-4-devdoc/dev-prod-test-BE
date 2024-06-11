@@ -1,25 +1,26 @@
-// User.java
+// UserUser.java
 
 package com.devdoc.backend.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "UserUser")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, unique = true)
+    
+    @Column(unique = true, nullable = false, length = 255)
     private String email;
-
-    @Column(nullable = false)
+    
+    @Column(nullable = false, length = 255)
     private String password;
-
-
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Resume> resumes;
 
     public Long getId() {
         return id;
@@ -43,5 +44,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public List<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<Resume> resumes) {
+        this.resumes = resumes;
     }
 }

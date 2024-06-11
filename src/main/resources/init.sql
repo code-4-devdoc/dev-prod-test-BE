@@ -1,20 +1,38 @@
 -- 데이터베이스 생성 및 설정
 CREATE SCHEMA IF NOT EXISTS `testdb`;
 
--- resume 테이블 생성
-CREATE TABLE IF NOT EXISTS app_user (
-    id SERIAL PRIMARY KEY,
+-- User 테이블 생성
+CREATE TABLE IF NOT EXISTS UserUser (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS resume (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255),
-    created_at TIMESTAMP
+-- Resume 테이블 생성
+CREATE TABLE IF NOT EXISTS Resume (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES UserUser(id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS section (
-    id SERIAL PRIMARY KEY,
-    content TEXT
+-- Skill 테이블 생성
+CREATE TABLE IF NOT EXISTS Skill (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    resume_id BIGINT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    FOREIGN KEY (resume_id) REFERENCES Resume(id) ON DELETE CASCADE
+);
+
+-- Project 테이블 생성
+CREATE TABLE IF NOT EXISTS Project (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    resume_id BIGINT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    period VARCHAR(100),
+    is_current BOOLEAN,
+    FOREIGN KEY (resume_id) REFERENCES Resume(id) ON DELETE CASCADE
 );
