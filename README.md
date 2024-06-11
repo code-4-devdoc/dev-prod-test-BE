@@ -28,25 +28,25 @@
 ---
 
 # DB 설계  
-- User :
+#### User :
 <br/>
 
 > id(PK) | email | password | List<Resume>
 <br/>
 
-- Resume :
+#### Resume :
 <br/>
 
 > id(PK) | user_id(FK) | title | created_at | List<Skill> | List<Project>
 <br/>
 
-- Skill :
+#### Skill :
 <br/>
 
 > id | resume_id(FK) | title | content
 <br/>
 
-- Project :
+#### Project :
 <br/>
 
 > id | resume_id(FK) | title | content | period | is_current
