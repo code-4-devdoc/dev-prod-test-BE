@@ -31,13 +31,13 @@
 #### User :
 <br/>
 
-> id(PK) | email | password | List<Resume>
+> id(PK) | email | password | List{Resume}
 <br/>
 
 #### Resume :
 <br/>
 
-> id(PK) | user_id(FK) | title | created_at | List<Skill> | List<Project>
+> id(PK) | user_id(FK) | title | created_at | List{Skill} | List{Project}
 <br/>
 
 #### Skill :
