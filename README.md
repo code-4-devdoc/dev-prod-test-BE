@@ -28,20 +28,42 @@
 ---
 
 # DB 설게도  
-- User : id(PK) email password List<Resume>
-- Resume : id(PK) user_id(FK) title created_at List<Skill> List<Project>
-- Skill : id resume_id(FK) title content
-- Project : id resume_id(FK) title content period is_current
+- User :
+<br/>
 
+> id(PK) | email | password | List<Resume>
+<br/>
+
+- Resume :
+<br/>
+
+> id(PK) | user_id(FK) | title | created_at | List<Skill> | List<Project>
+<br/>
+
+- Skill :
+<br/>
+
+> id | resume_id(FK) | title | content
+<br/>
+
+- Project :
+<br/>
+
+> id | resume_id(FK) | title | content | period | is_current
 <br/>
 
 ---
 
 # API 명세서  
 
-GET     /api/auth/resumes
-POST    /api/auth/resumes
-GET     /api/auth/resumes/{resumeId}
-POST    /api/auth/resumes/{resumeId}
-DEL     /api/auth/resumes/{resumeId}
-GET     /api/auth/resumes/{resumeId}/download
+`GET     /api/auth/resumes`
+<br/>
+`POST    /api/auth/resumes`
+<br/>
+`GET     /api/auth/resumes/{resumeId}`
+<br/>
+`POST    /api/auth/resumes/{resumeId}`
+<br/>
+`DEL     /api/auth/resumes/{resumeId}`
+<br/>
+`GET     /api/auth/resumes/{resumeId}/download`
