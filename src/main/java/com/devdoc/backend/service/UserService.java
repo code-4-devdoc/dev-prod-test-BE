@@ -26,6 +26,19 @@ public class UserService {
     @Autowired
     private ResumeRepository resumeRepository;
 
+    // --------------------------------- 테스트코드 --------------------------------- //
+
+    // List<Resume> 조회 - Test (Test User)
+    public List<Resume> getAllResumesByUserTest() {
+        Long userId = 1L;
+
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with ID: " + userId))
+                .getResumes();
+    }
+
+    // ---------------------------------- 기존코드 ---------------------------------- //
+
     // User 저장
     public void saveUser(User user) {
         userRepository.save(user);
@@ -86,7 +99,6 @@ public class UserService {
 
         return currentUsername.equals(ownerUsername);
     }    
-    
 
     // List<Resume> 조회
     public List<Resume> getAllResumesByUser() {

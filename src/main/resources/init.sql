@@ -36,3 +36,6 @@ CREATE TABLE IF NOT EXISTS Project (
     is_current BOOLEAN,
     FOREIGN KEY (resume_id) REFERENCES Resume(id) ON DELETE CASCADE
 );
+
+-- Test용 User 추가
+INSERT INTO UserUser (email, password) VALUES ('test@test.com', 'test');

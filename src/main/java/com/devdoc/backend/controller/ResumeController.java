@@ -27,11 +27,56 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
+    // --------------------------------- 테스트코드 --------------------------------- //
+
     // HelloBackend
     @GetMapping("/hello")
     public ResponseEntity<String> helloBackend() {
         return ResponseEntity.ok("HelloBackend");
     }
+
+    // List<Resume> 조회
+    @GetMapping("/test")
+    public ResponseEntity<List<Resume>> getAllResumesTest() {
+            List<Resume> resumes = userService.getAllResumesByUser();
+            
+            return new ResponseEntity<>(resumes, HttpStatus.OK);
+    }
+    
+    // Resume 생성
+    @PostMapping("/test")
+    public ResponseEntity<Void> createResumeTest(@RequestBody Resume resume) {
+            resumeService.createResume(resume);
+
+            return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    // Resume 조회
+    @GetMapping("/test/{resumeId}")
+    public ResponseEntity<Resume> getResumeByIdTest(@PathVariable Long resumeId) {
+            Resume resume = resumeService.getResumeById(resumeId);
+
+            return new ResponseEntity<>(resume, HttpStatus.OK);
+    }
+    
+    // Resume 저장 (= 기존 파일에 덮어쓰기)
+    @PostMapping("/test/{resumeId}")
+    public ResponseEntity<Void> saveResumeTest(@PathVariable Long resumeId, @RequestBody Resume resume) {
+            resume.setId(resumeId);
+            resumeService.saveResume(resume);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+    // Resume 삭제
+    @DeleteMapping("/test/{resumeId}")
+    public ResponseEntity<Void> deleteResumeTest(@PathVariable Long resumeId) {
+            resumeService.deleteResume(resumeId);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    // ---------------------------------- 기존코드 ---------------------------------- //
 
     // List<Resume> 조회
     @GetMapping
