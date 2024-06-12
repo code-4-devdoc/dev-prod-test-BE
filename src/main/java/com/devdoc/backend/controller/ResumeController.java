@@ -18,7 +18,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/auth/resumes")
+@RequestMapping("/api/resumes")
 public class ResumeController {
 
     @Autowired
@@ -26,6 +26,12 @@ public class ResumeController {
 
     @Autowired
     private ResumeService resumeService;
+
+    // HelloBackend
+    @GetMapping("/hello")
+    public ResponseEntity<String> helloBackend() {
+        return ResponseEntity.ok("HelloBackend");
+    }
 
     // List<Resume> 조회
     @GetMapping

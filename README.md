@@ -28,6 +28,7 @@
 ---
 
 # DB 설계  
+<br/>
 #### User :
 <br/>
 
@@ -55,15 +56,18 @@
 ---
 
 # API 명세서  
+<br/>
 
-`GET     /api/auth/resumes`
+`POST    /api/register`
 <br/>
-`POST    /api/auth/resumes`
+`GET     /api/resumes`
 <br/>
-`GET     /api/auth/resumes/{resumeId}`
+`POST    /api/resumes`
 <br/>
-`POST    /api/auth/resumes/{resumeId}`
+`GET     /api/resumes/{resumeId}`
 <br/>
-`DEL     /api/auth/resumes/{resumeId}`
+`POST    /api/resumes/{resumeId}`
 <br/>
-`GET     /api/auth/resumes/{resumeId}/download`
+`DEL     /api/resumes/{resumeId}`
+<br/>
+`GET     /api/resumes/{resumeId}/download`

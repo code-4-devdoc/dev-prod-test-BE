@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
 public class AuthController {
 
     @Autowired
@@ -41,7 +40,7 @@ public class AuthController {
     }
 
     // 회원가입
-    @PostMapping("/register")
+    @PostMapping("/api/register")
     public boolean register(@RequestBody User registerRequest) {
         if (userRepository.existsByEmail(registerRequest.getEmail())) {
             return false;
